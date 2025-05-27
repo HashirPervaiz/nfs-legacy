@@ -1,0 +1,298 @@
+/* Reset & base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #111;
+    color: #eee;
+    line-height: 1.6;
+  }
+  
+  a {
+    color: #f44336;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #ff7961;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    width: 100%;
+    background: #1a1a1a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #f44336;
+    cursor: default;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+  }
+  
+  .nav-links li a.active,
+  .nav-links li a:hover {
+    color: #ff7961;
+  }
+  
+  .nav-links li a.active::after,
+  .nav-links li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #f44336;
+    border-radius: 2px;
+    animation: underlineExpand 0.3s forwards;
+  }
+  
+  @keyframes underlineExpand {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('../assets/hero-bg.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    color: #fff;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  
+  .hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  
+  .btn-primary {
+    background-color: #f44336;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff7961;
+    box-shadow: 0 8px 20px rgba(255, 121, 97, 0.7);
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Main Sections */
+  main {
+    max-width: 1100px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
+  }
+  
+  .section {
+    margin-bottom: 70px;
+    animation: fadeInSection 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #f44336;
+    letter-spacing: 1.5px;
+    border-left: 5px solid #f44336;
+    padding-left: 12px;
+  }
+  
+  .section p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    max-width: 800px;
+  }
+  
+  /* Animate sections when in viewport */
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 20px 10px;
+    color: #777;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: 15px;
+    }
+  
+    .hero-content h1 {
+      font-size: 2.8rem;
+    }
+  
+    .hero-content p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .cars-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 60px; /* Added space below gallery */
+  }  
+  
+  .car-item {
+    background: #222;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .car-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .car-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .car-item h3 {
+    color: #f44336;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .car-item p {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-weight: 300;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .show-more-btn {
+    background: none;
+    border: none;
+    color: #f44336;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+  }
+  
+  .show-more-btn:hover {
+    color: #ff7961;
+  }
+ 
+  .about-content-section {
+    background-color: #1c1c1c;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px; /* <-- Add this */
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .about-text-box p {
+    margin-bottom: 16px;
+  }
+  
+  .about-text-box strong {
+    color: #ff3c3c;
+  }
+  
